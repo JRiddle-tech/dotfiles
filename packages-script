@@ -1,0 +1,33 @@
+# not for install-script, just check on install
+Install nvidia-driver
+sudo nvidia-detect
+sudo apt install nvidia-driver
+
+sudo apt update
+apt install nvidia-driver firmware-misc-nonfree
+sudo apt install nvidia-driver firmware-misc-nonfree
+
+
+----------------------------------------------------
+REMOVE
+- neofetch
+
+
+
+----------------------------------------------------
+ADD
+- thunar
+
+
+--------------------------------------------------
+packages
+
+flatpak packages
+- sudo apt install flatpak
+- flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+- bitwarden		flatpak install flathub com.bitwarden.desktop
+- obsidian		flatpak install flathub md.obsidian.Obsidian
+
+- sudo apt-get install cifs-utils
+- sudo mount -t cifs //10.0.0.3/rust /home/tuf/shares/rust -o credentials=/home/tuf/.smbcredentials,vers=3.0

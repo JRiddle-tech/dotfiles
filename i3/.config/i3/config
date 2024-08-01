@@ -1,10 +1,45 @@
-set $mod Mod4
-set $TERM --no-startup-id alacritty -e tmux -u attach
-set $BROWSER brave
+﻿set $mod Mod4
+
+set $TERM --no-startup-id alacritty
+set $BROWSER firefox-esr
 set $FILE_MANAGER thunar
+set $PASS flatpak run com.bitwarden.desktop
+set $NOTES flatpak run md.obsidian.Obsidian obsidian://open?vault=842b2d1a303b0bc3
 
 # set font
-font pango:FiraCode Nerd Font 8
+#font pango:FiraCode Nerd Font 8
+font pango: JetBrainsMono Nerd Font 11
+
+
+
+# ┛━━┃  ┏━ ┏━┃┏━┃  ┏━┛┏━┃┏━ ┏━┛┛┏━┛
+# ┃━━┃  ┏━┃┏━┃┏┏┛  ┃  ┃ ┃┃ ┃┏━┛┃┃ ┃
+# ┛━━┛  ━━ ┛ ┛┛ ┛  ━━┛━━┛┛ ┛┛  ┛━━┛
+
+
+
+# ┃┃┃┛┏━ ┏━ ┏━┃┃┃┃  ┏━┛┏━┃┏━ ┏━┛┛┏━┛
+# ┃┃┃┃┃ ┃┃ ┃┃ ┃┃┃┃  ┃  ┃ ┃┃ ┃┏━┛┃┃ ┃
+# ━━┛┛┛ ┛━━ ━━┛━━┛  ━━┛━━┛┛ ┛┛  ┛━━┛
+
+# Set gaps
+gaps inner 10
+gaps outer 5
+
+# Remove titlebars
+default_border pixel 2
+default_floating_border pixel 2
+
+# Colors
+# class                 border  backgr. text    indicator child_border
+client.focused          #321321 #285577 #f0f2e4 #657b69   #657b69
+client.focused_inactive #333333 #5f676a #f0f2e4 #1c1c20   #1c1c20
+client.unfocused        #333333 #222222 #888888 #1c1c20   #1c1c20
+client.urgent           #2f343a #900000 #f0f2e4 #900000   #900000
+client.placeholder      #000000 #0c0c0c #f0f2e4 #000000   #284374
+
+client.background       #284374
+
 
 floating_modifier $mod
 
@@ -32,16 +67,21 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # or left-clicking anywhere into the window while holding the floating modifier.
 tiling_drag modifier titlebar
 
+
+# ┏━┛┃ ┃┏━┛━┏┛┏━┃┏┏   ┏━┛┃ ┃┏━┃┏━┃━┏┛┏━┛┃ ┃━┏┛┏━┛
+# ┃  ┃ ┃━━┃ ┃ ┃ ┃┃┃┃  ━━┃┏━┃┃ ┃┏┏┛ ┃ ┃  ┃ ┃ ┃ ━━┃
+# ━━┛━━┛━━┛ ┛ ━━┛┛┛┛  ━━┛┛ ┛━━┛┛ ┛ ┛ ━━┛━━┛ ┛ ━━┛
+
+
 # basic keybinds
 bindsym $mod+Return exec $TERM
 bindsym $mod+z exec $BROWSER; workspace 4; focus
-bindsym $mod+c exec $FILE_MANAGER; workspace 3; focus 
+bindsym $mod+x exec $NOTES; workspace 5; focus
+bindsym $mod+c exec $FILE_MANAGER; workspace 3; focus
+bindsym $mod+p exec $PASS; workspace 7; focus 
 
 # kill focused window
 bindsym $mod+q kill
-
-# start dmenu (a program launcher)
-# bindsym $mod+d exec --no-startup-id dmenu_run
 
 bindsym $mod+d exec rofi -show run -theme ~/.config/rofi/launcher.rasi
 
